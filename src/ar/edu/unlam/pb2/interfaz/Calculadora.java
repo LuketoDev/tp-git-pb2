@@ -4,29 +4,22 @@ import java.util.Scanner;
 
 public class Calculadora {
 	
+	private static final Scanner TECLADO = new Scanner(System.in);
+	
 	public static void main(String[] args) { 
-		
-		Scanner teclado = new Scanner(System.in);
 		
         Integer a; 
         Integer b; 
         Integer opcion; 
         Integer resultado = 0; 
         
-        do{
-        	
-        	mostrarPorPantalla("Ingrese su operación /n 1 para multiplicar /n 2 para restar /n 3 para sumar /n 4 para dividir"); 
-        
-        	opcion = teclado.nextInt(); 
-        
-        }while(opcion < 1 && opcion > 4); 
-        
+        opcion = ingresoValidoDeMenu();
         
         mostrarPorPantalla("Ingrese el primer numero"); 
-        a = teclado.nextInt(); 
+        a = TECLADO.nextInt(); 
         
         mostrarPorPantalla("Ingrese el segundo numero"); 
-        b = teclado.nextInt(); 
+        b = TECLADO.nextInt(); 
         
         switch (opcion) {
         case 1:
@@ -44,9 +37,23 @@ public class Calculadora {
         }
 		
         mostrarPorPantalla("El resultado es " + resultado.toString()); 
-        
-        teclado.close();
-	} 
+     
+	}
+
+
+	private static Integer ingresoValidoDeMenu() {
+		
+		Integer opcion; 
+		
+		do{
+			mostrarPorPantalla("Ingrese su operación /n 1 para multiplicar /n 2 para restar /n 3 para sumar /n 4 para dividir"); 
+	        
+	        opcion = TECLADO.nextInt(); 
+	        
+	      }while(opcion < 1 && opcion > 4);
+		
+		return opcion;
+	}
 	
 	private static void mostrarPorPantalla(String mensaje) {
 		System.out.println(mensaje);
@@ -71,4 +78,5 @@ public class Calculadora {
 		Integer resultado = a / b;
 		return resultado;
 	}
+
 }
