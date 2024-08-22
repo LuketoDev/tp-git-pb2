@@ -24,25 +24,28 @@ public class Calculadora {
         
         System.out.println("Ingrese el primer numero"); 
         a = teclado.nextInt(); 
+        
         System.out.println("Ingrese el segundo numero"); 
         b = teclado.nextInt(); 
         
-		if(opcion.equals(1)){ 
-			
-           resultado = a + b;        
-           
-        }else if(opcion.equals(2)){ 
+        switch (opcion) {
+        
+        case 1:
+        	 resultado = a + b; 
+        	break;
         	
-            resultado = a - b; 
-            
-        }else if(opcion.equals(3)){ 
+        case 2:
+        	resultado = a - b;
+        	break;
         	
-            resultado = a * b; 
-            
-        }else{ 
-            resultado = a / b; 
-        } 
-		
+        case 3:
+        	resultado = a * b;
+        	break;
+        	
+        	default:
+        		resultado = a / b; 
+        		break;
+        }
 		
         System.out.println("El resultado es " + resultado.toString()); 
         
