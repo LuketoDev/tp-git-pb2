@@ -11,46 +11,42 @@ public class Calculadora {
         Integer a; 
         Integer b; 
         Integer opcion; 
-        Integer resultado; 
+        Integer resultado = 0; 
         
         opcion = ingresoValidoDeMenu();
         
-        System.out.println("Ingrese el primer numero"); 
+        mostrarPorPantalla("Ingrese el primer numero"); 
         a = TECLADO.nextInt(); 
         
-        System.out.println("Ingrese el segundo numero"); 
+        mostrarPorPantalla("Ingrese el segundo numero"); 
         b = TECLADO.nextInt(); 
         
         switch (opcion) {
-        
         case 1:
-        	resultado = a * b;
+        	multiplicacion(a, b);
         	break;
-        	
         case 2:
-        	resultado = a - b;
+        	resta(a, b);
         	break;
-        	
         case 3:
-        	resultado = a + b; 
+        	suma(a, b);
         	break;
-        	
         default:
-    		resultado = a / b; 
+        	division(a, b);
     		break;
         }
 		
-        System.out.println("El resultado es " + resultado.toString()); 
+        mostrarPorPantalla("El resultado es " + resultado.toString()); 
      
 	}
+
 
 	private static Integer ingresoValidoDeMenu() {
 		
 		Integer opcion; 
 		
 		do{
-        	
-	        System.out.println("Ingrese su operación /n 1 para multiplicar /n 2 para restar /n 3 para sumar /n 4 para dividir"); 
+			mostrarPorPantalla("Ingrese su operación /n 1 para multiplicar /n 2 para restar /n 3 para sumar /n 4 para dividir"); 
 	        
 	        opcion = TECLADO.nextInt(); 
 	        
@@ -59,5 +55,28 @@ public class Calculadora {
 		return opcion;
 	}
 	
+	private static void mostrarPorPantalla(String mensaje) {
+		System.out.println(mensaje);
+	}
 	
+	private static Integer suma(Integer a, Integer b) {
+		Integer resultado = a + b;
+		return resultado;
+	}
+	
+	private static Integer resta(Integer a, Integer b) {
+		Integer resultado = a - b;
+		return resultado;
+	}
+	
+	private static Integer multiplicacion(Integer a, Integer b) {
+		Integer resultado = a * b;
+		return resultado;
+	}
+	
+	private static Integer division(Integer a, Integer b) {
+		Integer resultado = a / b;
+		return resultado;
+	}
+
 }
